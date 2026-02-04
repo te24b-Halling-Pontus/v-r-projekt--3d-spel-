@@ -7,6 +7,6 @@ public class cammeraTriger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        GameObject[] = GameObject.FindGameObjectsWithTag("mainCamera");
+        // GameObject[] = GameObject.FindGameObjectsWithTag("mainCamera");
     }
 }
