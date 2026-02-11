@@ -26,7 +26,7 @@ public class MoveController : MonoBehaviour
 
         if (controller.isGrounded && velocetyY < 0)
         {
-            velocetyY = 0;
+            velocetyY--;
         }
 
         Vector3 movement = transform.forward * moveInput.y + transform.right * moveInput.x;
