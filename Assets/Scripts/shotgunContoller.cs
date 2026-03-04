@@ -24,6 +24,6 @@ public class shotgunContoller : MonoBehaviour
 
     void Update()
     {
-        Fire();
+        
     }
 }
