@@ -4,8 +4,8 @@ public class shotgunContoller : MonoBehaviour
 {
     [SerializeField]
     GameObject Bulletprefab;
-    Transform spawnPoint;
-    float timeBetwenShot = 1;
+    public Transform spawnPoint;
+    float timeBetwenShot = 0.1f;
     float timeSinceshot = 0.05f;
     void Start()
     {
@@ -14,16 +14,15 @@ public class shotgunContoller : MonoBehaviour
 
     public void Fire()
     {
-        timeSinceshot += Time.deltaTime;
         if (timeBetwenShot <= timeSinceshot)
         {
-            GameObject b = Instantiate(Bulletprefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject b = Instantiate(Bulletprefab, spawnPoint.position, spawnPoint.rotation * Quaternion.Euler(0,180,0));
             timeSinceshot = 0;
         }
     }
 
     void Update()
     {
-        
+        timeSinceshot += Time.deltaTime;
     }
 }

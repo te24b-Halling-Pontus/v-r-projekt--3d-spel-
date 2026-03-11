@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class weponScript : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class weponScript : MonoBehaviour
     {
 
     }
-    void OnAttack()
+    void OnAttack(InputValue value)
     {
         shotgunContoller shotgun = GetComponentInChildren<shotgunContoller>();
 
