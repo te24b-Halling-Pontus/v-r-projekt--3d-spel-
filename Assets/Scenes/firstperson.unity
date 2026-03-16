@@ -1566,6 +1566,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &398102151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1665846221303406273, guid: 6692e3a698ff51342b4e21376d7c3317, type: 3}
+  m_PrefabInstance: {fileID: 8626982306106671863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478605798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,8 +1583,9 @@ GameObject:
   - component: {fileID: 478605802}
   - component: {fileID: 478605801}
   - component: {fileID: 478605800}
+  - component: {fileID: 478605803}
   m_Layer: 0
-  m_Name: Pistol left
+  m_Name: Pistol Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1597,7 +1603,8 @@ Transform:
   m_LocalPosition: {x: -0.4, y: -0.208, z: 0.523}
   m_LocalScale: {x: 0.119709544, y: 0.09783889, z: 0.34728515}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1053869902}
   m_Father: {fileID: 2095345366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &478605800
@@ -1678,6 +1685,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478605798}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &478605803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478605798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d0dec26efc0c94cb6d956042a2bdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::pistolController
+  pistolBulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
 --- !u!1 &554761345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3272,6 +3293,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053869901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053869902}
+  m_Layer: 0
+  m_Name: Bullet Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053869902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053869901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.531}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478605799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275513650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2854fba0e11c9d4799d76331cdf4036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  shotgun: {fileID: 398102151}
+  rightPistol: {fileID: 1323550940}
+  leftPistol: {fileID: 478605798}
 --- !u!114 &1275513657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,8 +3497,9 @@ GameObject:
   - component: {fileID: 1323550944}
   - component: {fileID: 1323550943}
   - component: {fileID: 1323550942}
+  - component: {fileID: 1323550945}
   m_Layer: 0
-  m_Name: Pistol right
+  m_Name: Bullet Pistol Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3457,11 +3513,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323550940}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.39, y: -0.208, z: 0.523}
-  m_LocalScale: {x: 0.119709544, y: 0.09783889, z: 0.34728515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.39, y: -0.20800006, z: 0.523}
+  m_LocalScale: {x: 0.119709544, y: 0.09783889, z: 0.34728512}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1720665868}
   m_Father: {fileID: 2095345366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1323550942
@@ -3542,6 +3599,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323550940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1323550945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323550940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d0dec26efc0c94cb6d956042a2bdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  pistolBulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
 --- !u!4 &1471674703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5883325361566053319, guid: 6692e3a698ff51342b4e21376d7c3317, type: 3}
@@ -3674,6 +3745,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &1720665867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720665868}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720665868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720665867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1323550941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843428634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,8 +4067,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1471674703}
   - {fileID: 1323550941}
+  - {fileID: 1471674703}
   - {fileID: 478605799}
   m_Father: {fileID: 1275513651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
