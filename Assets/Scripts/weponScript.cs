@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,11 +19,17 @@ public class weponScript : MonoBehaviour
     }
     void OnAttack(InputValue value)
     {
-        shotgunContoller shotgun = GetComponentInChildren<shotgunContoller>();
-        shotgun.Fire();
-
-        // pistolController pistol = GetComponentInChildren<pistolController>();
-        // pistol.Fire();
+        switch (whichWepon)
+        {
+            case 1:
+                shotgunContoller shotgun = GetComponentInChildren<shotgunContoller>();
+                shotgun.Fire();
+                break;
+            case 2:
+                pistolController pistol = GetComponentInChildren<pistolController>();
+                pistol.Fire();
+                break;
+        }
     }
     public void OnScrollWheel(InputValue value)
     {
@@ -36,17 +43,19 @@ public class weponScript : MonoBehaviour
             whichWepon += (int)scroll.y;
         }
 
-        if (whichWepon == 1)
+        switch (whichWepon)
         {
-            leftPistol.SetActive(false);
-            rightPistol.SetActive(false);
-            shotgun.SetActive(true);
+            case 1:
+                leftPistol.SetActive(false);
+                rightPistol.SetActive(false);
+                shotgun.SetActive(true);
+                break;
+            case 2:
+                shotgun.SetActive(false);
+                leftPistol.SetActive(true);
+                rightPistol.SetActive(true);
+                break;
         }
-        else if (whichWepon == 2)
-        {
-            shotgun.SetActive(false);
-            leftPistol.SetActive(true);
-            rightPistol.SetActive(true);
-        }
+
     }
 }

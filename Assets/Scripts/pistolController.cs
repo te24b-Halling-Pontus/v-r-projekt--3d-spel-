@@ -4,17 +4,26 @@ public class pistolController : MonoBehaviour
 {
     [SerializeField]
     GameObject pistolBulletPrefab;
-    public Transform bulletSpawnPoint;
-    void Start()
-    {
-        bulletSpawnPoint = transform.GetChild(0).transform;
-    }
+    [SerializeField]
+    public Transform bulletSpawnPointRight;
+    [SerializeField]
+    public Transform bulletSpawnPointLeft;
+    bool rightsTurneToFire = true;
+
     public void Fire()
     {
-        GameObject b = Instantiate(pistolBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation * Quaternion.Euler(0,180,0));
+        if (rightsTurneToFire)
+        {
+            GameObject b = Instantiate(pistolBulletPrefab, bulletSpawnPointRight.position, bulletSpawnPointRight.rotation * Quaternion.Euler(0, 1800, 0));
+        }
+        else if (!rightsTurneToFire)
+        {
+            GameObject t = Instantiate(pistolBulletPrefab, bulletSpawnPointLeft.position, bulletSpawnPointLeft.rotation * Quaternion.Euler(0, 1800, 0));
+        }
+        rightsTurneToFire = !rightsTurneToFire;
     }
     void Update()
     {
-        
+
     }
 }

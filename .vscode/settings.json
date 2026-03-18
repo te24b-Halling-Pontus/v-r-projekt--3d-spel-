@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "v-r-projekt--3d-spel-.slnx"
+    "dotnet.defaultSolution": "vår projekt (3d spel).slnx"
 }
