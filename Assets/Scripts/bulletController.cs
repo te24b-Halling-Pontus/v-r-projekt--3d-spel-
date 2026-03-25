@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class bulletController : MonoBehaviour
 {
     [SerializeField]
@@ -8,10 +7,5 @@ public class bulletController : MonoBehaviour
     {
         Destroy(gameObject, 5);
         GetComponent<Rigidbody>().AddForce(transform.forward * 1000 * speed);
-    }
-
-    void Update()
-    {
-        // transform.Translate(transform.forward * Time.deltaTime * speed);
     }
 }

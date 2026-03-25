@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class weponScript : MonoBehaviour
 {
 
-    int whichWepon = 1;
+    public int whichWepon = 1;
     [SerializeField]
     GameObject shotgun;
     [SerializeField]
