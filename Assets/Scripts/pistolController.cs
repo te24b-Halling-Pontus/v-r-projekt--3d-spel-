@@ -22,8 +22,4 @@ public class pistolController : MonoBehaviour
         }
         rightsTurneToFire = !rightsTurneToFire;
     }
-    void Update()
-    {
-
-    }
 }

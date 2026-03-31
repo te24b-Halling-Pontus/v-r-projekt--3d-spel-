@@ -7,16 +7,20 @@ public class buttomController : MonoBehaviour
     GameObject ennemy;
     public void Press()
     {
-        Vector3 spawnPos = new Vector3(0, 10, 0);
-        Quaternion rotation = Quaternion.identity;
+        for (int i = 0; i < 100; i++)
+        {
+            Vector3 spawnPos = new Vector3(Random.Range(-50f, 50f), 10, Random.Range(-50f, 50f));
+            Quaternion rotation = Quaternion.identity;
 
-    
-        Instantiate(ennemy, spawnPos, rotation);
+            Instantiate(ennemy, spawnPos, rotation);
+        }
+
+
         GetComponent<Renderer>().material.color = Color.coral;
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

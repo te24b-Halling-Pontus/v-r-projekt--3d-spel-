@@ -41,4 +41,8 @@ public class simpelEnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Hit()
+    {
+        Destroy(gameObject);
+    }
 }

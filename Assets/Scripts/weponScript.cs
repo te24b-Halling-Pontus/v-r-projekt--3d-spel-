@@ -12,10 +12,13 @@ public class weponScript : MonoBehaviour
     GameObject rightPistol;
     [SerializeField]
     GameObject leftPistol;
+    [SerializeField]
+    GameObject rayGun;
     void Start()
     {
         leftPistol.SetActive(false);
         rightPistol.SetActive(false);
+        rayGun.SetActive(false);
     }
     void OnAttack(InputValue value)
     {
@@ -29,18 +32,36 @@ public class weponScript : MonoBehaviour
                 pistolController pistol = GetComponentInChildren<pistolController>();
                 pistol.Fire();
                 break;
+            case 3:
+                RaygunController rayGun = GetComponentInChildren<RaygunController>();
+                rayGun.Fire();
+                break;
         }
     }
     public void OnScrollWheel(InputValue value)
     {
         Vector2 scroll = value.Get<Vector2>();
-        if (whichWepon <= 3 && (int)scroll.y < 0 && whichWepon > 1)
+        if ((int)scroll.y < 0)
         {
-            whichWepon += (int)scroll.y;
+            if (whichWepon > 1)
+            {
+                whichWepon--;
+            }
+            else
+            {
+                whichWepon = 3;
+            }
         }
-        else if (whichWepon >= 1 && (int)scroll.y > 0 && whichWepon < 3)
+        else if ((int)scroll.y > 0)
         {
-            whichWepon += (int)scroll.y;
+            if (whichWepon <= 3)
+            {
+                whichWepon++;
+            }
+            else
+            {
+                whichWepon = 1;
+            }
         }
 
         switch (whichWepon)
@@ -49,11 +70,19 @@ public class weponScript : MonoBehaviour
                 leftPistol.SetActive(false);
                 rightPistol.SetActive(false);
                 shotgun.SetActive(true);
+                rayGun.SetActive(false);
                 break;
             case 2:
                 shotgun.SetActive(false);
                 leftPistol.SetActive(true);
                 rightPistol.SetActive(true);
+                rayGun.SetActive(false);
+                break;
+            case 3:
+                shotgun.SetActive(false);
+                leftPistol.SetActive(false);
+                rightPistol.SetActive(false);
+                rayGun.SetActive(true);
                 break;
         }
 
