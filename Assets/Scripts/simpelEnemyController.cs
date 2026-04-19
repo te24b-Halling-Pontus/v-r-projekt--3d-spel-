@@ -11,7 +11,6 @@ public class simpelEnemyController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Animator anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,8 +26,6 @@ public class simpelEnemyController : MonoBehaviour
         Vector3 movement = transform.forward * 0 + transform.right * 0;
         movement.y = velocetyY;
 
-        controller.Move(movement * Time.deltaTime);
-
         timeIdle += Time.deltaTime;
         if (timeIdle >= 10)
         {
@@ -42,9 +39,9 @@ public class simpelEnemyController : MonoBehaviour
         {
             Animator anim = GetComponent<Animator>(); // hämtar animatioen, så man kan ändra des värden
             Vector3 shotDiraction = collision.gameObject.transform.forward; // hämtar  riktningen från skottet
-            float Dot = Vector3.Dot(transform.forward, shotDiraction); // jämför kulans riktiong med fiendens
+            float dot = Vector3.Dot(transform.forward, shotDiraction); // jämför kulans riktiong med fiendens
             GetComponent<Collider>().enabled = false;
-            if (Dot <= 0)
+            if (dot <= 0)
             {
                 anim.SetBool("killed", true);
                 Destroy(gameObject, 3);
@@ -52,14 +49,24 @@ public class simpelEnemyController : MonoBehaviour
             else
             {
                 anim.SetBool("killedFromBehind", true);
-                Destroy(gameObject, 2.4f);
+                Destroy(gameObject, 2.3f);
             }
         }
     }
-    public void Hit()
+    public void Hit(float dot)
     {
         Animator anim = GetComponent<Animator>();
-        anim.SetBool("killed", true);
-        Destroy(gameObject, 3);
+        if (dot <= 0)
+        {
+
+            anim.SetBool("killed", true);
+            Destroy(gameObject, 3);
+        }
+        else
+        {
+            anim.SetBool("killedFromBehind", true);
+            Destroy(gameObject, 2.3f);
+        }
     }
 }
+

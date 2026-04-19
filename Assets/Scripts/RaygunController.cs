@@ -25,9 +25,10 @@ public class RaygunController : MonoBehaviour
 
         if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, 1000))
         {
-            print(hit.distance);
+            float dot = Vector3.Dot(head.transform.forward, hit.transform.forward);
+
             hit.transform.SendMessage("Press", SendMessageOptions.DontRequireReceiver);
-            hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
+            hit.transform.SendMessage("Hit", dot, SendMessageOptions.DontRequireReceiver);
             distance = hit.distance;
 
         }
