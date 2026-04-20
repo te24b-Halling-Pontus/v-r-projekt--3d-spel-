@@ -32,6 +32,7 @@ public class simpelEnemyController : MonoBehaviour
             Animator anim = GetComponent<Animator>();
             anim.SetBool("dancing", true);
         }
+        controller.Move(movement * Time.deltaTime);
     }
     void OnCollisionEnter(Collision collision)
     {
