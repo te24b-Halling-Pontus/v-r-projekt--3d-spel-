@@ -8,6 +8,6 @@ public class RayController : MonoBehaviour
     {
         transform.localScale = new Vector3(transform.localScale.x, distance / 2, transform.localScale.z);
         transform.Translate(0, distance / 2, 0);
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.5f);
     }
 }

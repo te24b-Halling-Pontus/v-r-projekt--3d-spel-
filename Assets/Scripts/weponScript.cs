@@ -1,4 +1,5 @@
 
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,11 +15,31 @@ public class weponScript : MonoBehaviour
     GameObject leftPistol;
     [SerializeField]
     GameObject rayGun;
+    bool mouseIsDown = false;
+    int timeToWait = 2;
+    float timeWaited;
     void Start()
     {
         leftPistol.SetActive(false);
         rightPistol.SetActive(false);
         rayGun.SetActive(false);
+    }
+    void Update()
+    {
+        // if (mouseIsDown)
+        // {
+        //     timeWaited += Time.deltaTime;
+        //     if (timeWaited > timeToWait)
+        //     {
+        //         RaygunController rayGun = GetComponentInChildren<RaygunController>();
+        //         rayGun.Fire();
+        //         timeToWait = 0;
+        //     }
+        // }
+        // else if (!mouseIsDown)
+        // {
+        //     timeWaited = 0;
+        // }
     }
     void OnAttack(InputValue value)
     {
@@ -33,9 +54,16 @@ public class weponScript : MonoBehaviour
                 pistol.Fire();
                 break;
             case 3:
-                RaygunController rayGun = GetComponentInChildren<RaygunController>();
-                rayGun.Fire();
+                mouseIsDown = true;
                 break;
+        }
+    }
+    void OnMouseHoldingDown(InputValue value)
+    {
+        if (whichWepon == 3)
+        {
+            RaygunController rayGun = GetComponentInChildren<RaygunController>();
+            rayGun.Fire(); 
         }
     }
     public void OnScrollWheel(InputValue value)
@@ -54,12 +82,14 @@ public class weponScript : MonoBehaviour
         }
         else if ((int)scroll.y > 0)
         {
-            if (whichWepon <= 3)
+            if (whichWepon < 3)
             {
                 whichWepon++;
+                print("hej");
             }
             else
             {
+                print("gå");
                 whichWepon = 1;
             }
         }

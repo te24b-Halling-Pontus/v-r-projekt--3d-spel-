@@ -20,9 +20,8 @@ public class simpelEnemyController : MonoBehaviour
 
         if (controller.isGrounded && velocetyY < 0)
         {
-            velocetyY--;
+            velocetyY = -1;
         }
-
         Vector3 movement = transform.forward * 0 + transform.right * 0;
         movement.y = velocetyY;
 
@@ -32,7 +31,10 @@ public class simpelEnemyController : MonoBehaviour
             Animator anim = GetComponent<Animator>();
             anim.SetBool("dancing", true);
         }
-        controller.Move(movement * Time.deltaTime);
+        if (GetComponent<CharacterController>().enabled) // kollar så den är aktive för anars krashar programet om den är inaktive, negativt är att den har ingen gravitation under döts animationen
+        {
+            controller.Move(movement * Time.deltaTime);
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -57,9 +59,9 @@ public class simpelEnemyController : MonoBehaviour
     public void Hit(float dot)
     {
         Animator anim = GetComponent<Animator>();
+        GetComponent<Collider>().enabled = false;
         if (dot <= 0)
         {
-
             anim.SetBool("killed", true);
             Destroy(gameObject, 3);
         }
