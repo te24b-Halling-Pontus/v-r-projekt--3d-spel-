@@ -22,7 +22,7 @@ public class RaygunController : MonoBehaviour
     public void Fire()
     {
         RaycastHit[] hits = Physics.RaycastAll(head.transform.position, head.transform.forward, 1000);
-        foreach (RaycastHit hit in hits)
+        foreach (RaycastHit hit in hits) //nu går den igenom alla targets inom 1000 unity enhet
         {
             float dot = Vector3.Dot(head.transform.forward, hit.transform.forward);
             hit.transform.SendMessage("Press", SendMessageOptions.DontRequireReceiver);

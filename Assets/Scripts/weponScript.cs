@@ -85,11 +85,9 @@ public class weponScript : MonoBehaviour
             if (whichWepon < 3)
             {
                 whichWepon++;
-                print("hej");
             }
             else
             {
-                print("gå");
                 whichWepon = 1;
             }
         }

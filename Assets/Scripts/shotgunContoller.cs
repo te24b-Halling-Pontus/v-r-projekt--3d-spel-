@@ -24,8 +24,6 @@ public class shotgunContoller : MonoBehaviour
         {
             for (int i = 0; i <= 9; i++)
             {
-
-                // posOffset =  new Vector3 (Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 rotationffset = Random.Range(-15f, 15f);
                 rotationffset1 = Random.Range(-15f, 15f);
                 rotationffset2 = Random.Range(-15f, 15f);
