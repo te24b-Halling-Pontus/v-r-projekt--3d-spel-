@@ -13,12 +13,6 @@ public class RaygunController : MonoBehaviour
         head = GetComponentInParent<Camera>();
         spawnPoint = transform.GetChild(0).transform;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Fire()
     {
         RaycastHit[] hits = Physics.RaycastAll(head.transform.position, head.transform.forward, 1000);
@@ -26,7 +20,7 @@ public class RaygunController : MonoBehaviour
         {
             float dot = Vector3.Dot(head.transform.forward, hit.transform.forward);
             hit.transform.SendMessage("Press", SendMessageOptions.DontRequireReceiver);
-            hit.transform.SendMessage("Hit", dot, SendMessageOptions.DontRequireReceiver);
+            hit.transform.SendMessage("KillDiraction", dot, SendMessageOptions.DontRequireReceiver);
         }
         if (hits.Length < 1)
         {

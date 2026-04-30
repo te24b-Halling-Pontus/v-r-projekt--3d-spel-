@@ -13,11 +13,6 @@ public class buttomController : MonoBehaviour
 
             Instantiate(ennemy, spawnPos, rotation);
         }
-        GetComponent<Renderer>().material.color = Color.coral;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
+        GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
 }
