@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Security.Principal;
 using UnityEngine;
 
 public class simpelEnemyController : MonoBehaviour
