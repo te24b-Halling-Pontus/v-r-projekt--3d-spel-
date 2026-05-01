@@ -33,7 +33,7 @@ public class weponScript : MonoBehaviour
                 break;
         }
     }
-    void OnMouseHoldingDown(InputValue value)
+    void OnMouseHoldingDown(InputValue value) // måste lägga in custom knapp i playerinput varje gång du startar av någon dum anledning. 
     {
         if (whichWepon == 3)
         {
